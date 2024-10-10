@@ -1,5 +1,8 @@
 name: Auto-Green
 
+permissions:
+  contents: write
+  
 on:
   workflow_dispatch:
     inputs:
@@ -19,7 +22,7 @@ jobs:
 
       - name: Pull
         run: |
-          git config --local user.name "${{ github.actor }}"
+          git config --local user.name "jiayi"
           git config --local user.email "505094948@qq.com"
           git remote set-url origin https://${{ github.repository_owner }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
